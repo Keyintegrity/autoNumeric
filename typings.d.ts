@@ -1,14 +1,14 @@
 declare namespace AutoNumeric {
     interface Options {
         aSep?: string;
-        dGroup?: number;
+        dGroup?: string;
         aDec?: string;
         altDec?: string;
         aSign?: string;
         pSign?: "p" | "s";
-        vMin?: number;
-        vMax?: number;
-        mDec?: number;
+        vMin?: string;
+        vMax?: string;
+        mDec?: string;
         mRound?: "S" | "A" | "s" | "a" | "B" | "U" | "D" | "C" | "F" | "CHF";
         aPad?: boolean;
         nBracket?: string;
