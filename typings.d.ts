@@ -22,16 +22,10 @@ declare namespace AutoNumeric {
         name: string;
         value: string;
     }
-
-    type Method = "init" | "destroy" | "update" | "set" | "get"
-        | "getString" | "getArray" | "getSettings";
 }
 
 interface JQuery {
-    autoNumeric(): JQuery;
-    autoNumeric(options: AutoNumeric.Options): JQuery;
-    autoNumeric(method: AutoNumeric.Method, options?: AutoNumeric.Options): JQuery
-        | string | AutoNumeric.Serialized[] | AutoNumeric.Options;
+    autoNumeric(options?: AutoNumeric.Options): JQuery;
     autoNumeric(method: "init", options?: AutoNumeric.Options): JQuery;
     autoNumeric(method: "destroy"): JQuery;
     autoNumeric(method: "update", options: AutoNumeric.Options): JQuery;
