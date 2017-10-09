@@ -1,41 +1,43 @@
-interface AutoNumericOptions {
-    aSep?: string;
-    dGroup?: number;
-    aDec?: string;
-    altDec?: string;
-    aSign?: string;
-    pSign?: "p" | "s";
-    vMin?: number;
-    vMax?: number;
-    mDec?: number;
-    mRound?: "S" | "A" | "s" | "a" | "B" | "U" | "D" | "C" | "F" | "CHF";
-    aPad?: boolean;
-    nBracket?: string;
-    wEmpty?: "empty" | "zero" | "sign";
-    lZero?: "allow" | "deny" | "keep";
-    aForm?: boolean;
-    anDefault?: string;
-}
+declare namespace AutoNumeric {
+    interface Options {
+        aSep?: string;
+        dGroup?: number;
+        aDec?: string;
+        altDec?: string;
+        aSign?: string;
+        pSign?: "p" | "s";
+        vMin?: number;
+        vMax?: number;
+        mDec?: number;
+        mRound?: "S" | "A" | "s" | "a" | "B" | "U" | "D" | "C" | "F" | "CHF";
+        aPad?: boolean;
+        nBracket?: string;
+        wEmpty?: "empty" | "zero" | "sign";
+        lZero?: "allow" | "deny" | "keep";
+        aForm?: boolean;
+        anDefault?: string;
+    }
 
-interface Serialized {
-    name: string;
-    value: string;
-}
+    interface Serialized {
+        name: string;
+        value: string;
+    }
 
-type AutoNumericMethod = "init" | "destroy" | "update" | "set" | "get"
-    | "getString" | "getArray" | "getSettings";
+    type Method = "init" | "destroy" | "update" | "set" | "get"
+        | "getString" | "getArray" | "getSettings";
+}
 
 interface JQuery {
     autoNumeric(): JQuery;
-    autoNumeric(options: AutoNumericOptions): JQuery;
-    autoNumeric(method: AutoNumericMethod, options?: AutoNumericOptions): JQuery
-        | string | Serialized[] | AutoNumericOptions;
-    autoNumeric(method: "init", options?: AutoNumericOptions): JQuery;
+    autoNumeric(options: AutoNumeric.Options): JQuery;
+    autoNumeric(method: AutoNumeric.Method, options?: AutoNumeric.Options): JQuery
+        | string | AutoNumeric.Serialized[] | AutoNumeric.Options;
+    autoNumeric(method: "init", options?: AutoNumeric.Options): JQuery;
     autoNumeric(method: "destroy"): JQuery;
-    autoNumeric(method: "update", options: AutoNumericOptions): JQuery;
+    autoNumeric(method: "update", options: AutoNumeric.Options): JQuery;
     autoNumeric(method: "set", value: string): JQuery;
     autoNumeric(method: "get"): string;
     autoNumeric(method: "getString"): string;
-    autoNumeric(method: "getArray"): Serialized[];
-    autoNumeric(method: "getSettings"): AutoNumericOptions;
+    autoNumeric(method: "getArray"): AutoNumeric.Serialized[];
+    autoNumeric(method: "getSettings"): AutoNumeric.Options;
 }
